@@ -247,3 +247,68 @@ begin with "text/", and does not end with "/xml" or "+xml".
 element.
 * atom:entry elements MUST contain exactly one atom:title element.
 * atom:entry elements MUST contain exactly one atom:updated element.
+
+```php
+class AtomFeedDocument extends AtomDocument
+{
+    /**
+     * @var $authors ElementCollection
+     */
+    protected $authors;
+
+    /**
+     * @var $categories ElementCollection
+     */
+    protected $categories;
+
+    /**
+     * @var $content AtomContentElement
+     */
+    protected $content;
+
+    /**
+     * @var $contributors ElementCollection
+     */
+    protected $contributors;
+
+    /**
+     * @var $id AtomIdElement
+     */
+    protected $id;
+
+    /**
+     * @var $links ElementCollection
+     */
+    protected $links;
+
+    /**
+     * @var $published AtomPublishedElement
+     */
+    protected $published;
+
+    /**
+     * @var $rights AtomRightsElement
+     */
+    protected $rights;
+
+    /**
+     * @var $source AtomSourceElement
+     */
+    protected $source;
+
+    /**
+     * @var $summary AtomSummaryElement
+     */
+    protected $summary;
+
+    /**
+     * @var $title AtomTitleElement
+     */
+    protected $title;
+
+    /**
+     * @var $updated AtomUpdatedElement
+     */
+    protected $updated;
+}
+```
