@@ -100,3 +100,8 @@ class AtomFeedDocument extends AtomDocument {}
 
 class AtomEntryDocument extends AtomDocument {}
 ```
+
+### Misc
+
+* If the "type" attribute is not provided, Atom Processors MUST behave as though
+it were present with a value of "text".
