@@ -144,8 +144,63 @@ absence of a numeric time zone offset.
 class AtomFeedDocument extends AtomDocument
 {
     /**
-     * @var $author ElementCollection
+     * @var $authors ElementCollection
      */
     protected $author;
+
+    /**
+     * @var $categories ElementCollection
+     */
+    protected $categories;
+
+    /**
+     * @var $contributors ElementCollection
+     */
+    protected $contributors;
+
+    /**
+     * @var $generator AtomGeneratorElement
+     */
+    protected $generator;
+
+    /**
+     * @var $icon AtomIconElement
+     */
+    protected $icon;
+
+    /**
+     * @var $logo AtomLogoElement
+     */
+    protected $logo;
+
+    /**
+     * @var $id AtomIdElement
+     */
+    protected $id;
+
+    /**
+     * @var $link AtomLinkElement
+     */
+    // protected $link; ???
+
+    /**
+     * @var $rights AtomRightsElement
+     */
+    protected $rights;
+
+    /**
+     * @var $subtitle AtomSubtitleElement
+     */
+    protected $subtitle;
+
+    /**
+     * @var $title AtomTitleElement
+     */
+    protected $title;
+
+    /**
+     * @var $updated AtomUpdatedElement
+     */
+    protected $updated;
 }
 ```
