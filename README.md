@@ -94,25 +94,6 @@ From [RFC 4287](http://tools.ietf.org/html/rfc4287):
 Interpreted in PHP code that might look like:
 
 ```php
-abstract class AtomDocument {}
-
-class AtomFeedDocument extends AtomDocument {}
-
-class AtomEntryDocument extends AtomDocument {}
-```
-
-### Misc
-
-* If the "type" attribute is not provided, Atom Processors MUST behave as though
-it were present with a value of "text".
-* A Date construct is an element whose content MUST conform to the "date-time"
-production in [RFC3339]. In addition, an uppercase "T" character MUST be used to
-separate date and time, and an uppercase "Z" character MUST be present in the
-absence of a numeric time zone offset.
-
-### Domain
-
-```php
 abstract class AtomDocument
 {
     /**
