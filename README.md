@@ -1,5 +1,7 @@
 # PHP Atom
 
+_Me fooling around with the Atom specification..._
+
 From [RFC 4287](http://tools.ietf.org/html/rfc4287):
 
 > Atom is an XML-based document format that describes lists of related
