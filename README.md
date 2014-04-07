@@ -88,11 +88,6 @@ Atom example documents, also from
 
 From [RFC 4287](http://tools.ietf.org/html/rfc4287):
 
-> This specification describes conformance in terms of two artifacts:
-> Atom Feed Documents and Atom Entry Documents. Additionally, it
-> places some requirements on Atom Processors.
-
-
 > This specification describes two kinds of Atom Documents: Atom Feed
 > Documents and Atom Entry Documents.
 
