@@ -179,9 +179,9 @@ class AtomFeedDocument extends AtomDocument
     protected $id;
 
     /**
-     * @var $link AtomLinkElement
+     * @var $links ElementCollection
      */
-    // protected $link; ???
+    protected $links;
 
     /**
      * @var $rights AtomRightsElement
