@@ -110,76 +110,10 @@ production in [RFC3339]. In addition, an uppercase "T" character MUST be used to
 separate date and time, and an uppercase "Z" character MUST be present in the
 absence of a numeric time zone offset.
 
-### Business rules
-
-* atom:feed elements MUST contain one or more atom:author elements,
- unless all of the atom:feed element’s child atom:entry elements
- contain at least one atom:author element.
-* atom:feed elements MAY contain any number of atom:category
- elements.
-* atom:feed elements MAY contain any number of atom:contributor
- elements.
-* atom:feed elements MUST NOT contain more than one atom:generator
- element.
-* atom:feed elements MUST NOT contain more than one atom:icon
- element.
-* atom:feed elements MUST NOT contain more than one atom:logo
- element.
-* atom:feed elements MUST contain exactly one atom:id element.
-* atom:feed elements SHOULD contain one atom:link element with a rel
- attribute value of "self". This is the preferred URI for
- retrieving Atom Feed Documents representing this Atom feed.
-* atom:feed elements MUST NOT contain more than one atom:link
- element with a rel attribute value of "alternate" that has the
- same combination of type and hreflang attribute values.
-* atom:feed elements MAY contain additional atom:link elements
- beyond those described above.
-* atom:feed elements MUST NOT contain more than one atom:rights
- element.
-* atom:feed elements MUST NOT contain more than one atom:subtitle element.
-* atom:feed elements MUST contain exactly one atom:title element.
-* atom:feed elements MUST contain exactly one atom:updated element.
-
-* atom:entry elements MUST contain one or more atom:author elements,
-unless the atom:entry contains an atom:source element that
-contains an atom:author element or, in an Atom Feed Document, the
-atom:feed element contains an atom:author element itself.
-* atom:entry elements MAY contain any number of atom:category
-elements.
-* atom:entry elements MUST NOT contain more than one atom:content
-element.
-* atom:entry elements MAY contain any number of atom:contributor
-elements.
-* atom:entry elements MUST contain exactly one atom:id element.
-* atom:entry elements that contain no child atom:content element
-MUST contain at least one atom:link element with a rel attribute
-value of "alternate".
-* atom:entry elements MUST NOT contain more than one atom:link
-element with a rel attribute value of "alternate" that has the
-same combination of type and hreflang attribute values.
-* atom:entry elements MAY contain additional atom:link elements
-beyond those described above.
-* atom:entry elements MUST NOT contain more than one atom:published
-element.
-* atom:entry elements MUST NOT contain more than one atom:rights
-element.
-* atom:entry elements MUST NOT contain more than one atom:source
-element.
-* atom:entry elements MUST contain an atom:summary element in either
-of the following cases:
-    * the atom:entry contains an atom:content that has a "src"
-attribute (and is thus empty).
-    * the atom:entry contains content that is encoded in Base64;
-i.e., the "type" attribute of atom:content is a MIME media type
-[MIMEREG], but is not an XML media type [RFC3023], does not
-begin with "text/", and does not end with "/xml" or "+xml".
-* atom:entry elements MUST NOT contain more than one atom:summary
-element.
-* atom:entry elements MUST contain exactly one atom:title element.
-* atom:entry elements MUST contain exactly one atom:updated element.
+### Domain
 
 ```php
-class AtomFeedDocument extends AtomDocument
+abstract class AtomDocument
 {
     /**
      * @var $authors ElementCollection
@@ -196,6 +130,36 @@ class AtomFeedDocument extends AtomDocument
      */
     protected $contributors;
 
+    /**
+     * @var $id AtomIdElement
+     */
+    protected $id;
+
+    /**
+     * @var $links ElementCollection
+     */
+    protected $links;
+
+    /**
+     * @var $rights AtomRightsElement
+     */
+    protected $rights;
+
+    /**
+     * @var $title AtomTitleElement
+     */
+    protected $title;
+
+    /**
+     * @var $updated AtomUpdatedElement
+     */
+    protected $updated;
+}
+```
+
+```php
+class AtomFeedDocument extends AtomDocument
+{
     /**
      * @var $generator AtomGeneratorElement
      */
@@ -212,34 +176,9 @@ class AtomFeedDocument extends AtomDocument
     protected $logo;
 
     /**
-     * @var $id AtomIdElement
-     */
-    protected $id;
-
-    /**
-     * @var $links ElementCollection
-     */
-    protected $links;
-
-    /**
-     * @var $rights AtomRightsElement
-     */
-    protected $rights;
-
-    /**
      * @var $subtitle AtomSubtitleElement
      */
     protected $subtitle;
-
-    /**
-     * @var $title AtomTitleElement
-     */
-    protected $title;
-
-    /**
-     * @var $updated AtomUpdatedElement
-     */
-    protected $updated;
 
     /**
      * @var $entries ElementCollection
@@ -252,44 +191,14 @@ class AtomFeedDocument extends AtomDocument
 class AtomEntryDocument extends AtomDocument
 {
     /**
-     * @var $authors ElementCollection
-     */
-    protected $authors;
-
-    /**
-     * @var $categories ElementCollection
-     */
-    protected $categories;
-
-    /**
      * @var $content AtomContentElement
      */
     protected $content;
 
     /**
-     * @var $contributors ElementCollection
-     */
-    protected $contributors;
-
-    /**
-     * @var $id AtomIdElement
-     */
-    protected $id;
-
-    /**
-     * @var $links ElementCollection
-     */
-    protected $links;
-
-    /**
      * @var $published AtomPublishedElement
      */
     protected $published;
-
-    /**
-     * @var $rights AtomRightsElement
-     */
-    protected $rights;
 
     /**
      * @var $source AtomSourceElement
@@ -300,15 +209,5 @@ class AtomEntryDocument extends AtomDocument
      * @var $summary AtomSummaryElement
      */
     protected $summary;
-
-    /**
-     * @var $title AtomTitleElement
-     */
-    protected $title;
-
-    /**
-     * @var $updated AtomUpdatedElement
-     */
-    protected $updated;
 }
 ```
