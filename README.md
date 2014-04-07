@@ -139,3 +139,13 @@ absence of a numeric time zone offset.
 * atom:feed elements MUST NOT contain more than one atom:subtitle element.
 * atom:feed elements MUST contain exactly one atom:title element.
 * atom:feed elements MUST contain exactly one atom:updated element.
+
+```php
+class AtomFeedDocument extends AtomDocument
+{
+    /**
+     * @var $author ElementCollection
+     */
+    protected $author;
+}
+```
