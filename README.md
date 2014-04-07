@@ -91,6 +91,8 @@ From [RFC 4287](http://tools.ietf.org/html/rfc4287):
 > This specification describes two kinds of Atom Documents: Atom Feed
 > Documents and Atom Entry Documents.
 
+Interpreted in PHP code that might look like:
+
 ```php
 abstract class AtomDocument {}
 
