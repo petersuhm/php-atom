@@ -146,7 +146,7 @@ class AtomFeedDocument extends AtomDocument
     /**
      * @var $authors ElementCollection
      */
-    protected $author;
+    protected $authors;
 
     /**
      * @var $categories ElementCollection
