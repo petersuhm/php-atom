@@ -1,4 +1,4 @@
-# PHP Atom client
+# PHP Atom
 
 From [RFC 4287](http://tools.ietf.org/html/rfc4287):
 
