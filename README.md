@@ -105,3 +105,37 @@ class AtomEntryDocument extends AtomDocument {}
 
 * If the "type" attribute is not provided, Atom Processors MUST behave as though
 it were present with a value of "text".
+* A Date construct is an element whose content MUST conform to the "date-time"
+production in [RFC3339]. In addition, an uppercase "T" character MUST be used to
+separate date and time, and an uppercase "Z" character MUST be present in the
+absence of a numeric time zone offset.
+
+### Business rules
+
+* atom:feed elements MUST contain one or more atom:author elements,
+ unless all of the atom:feed element’s child atom:entry elements
+ contain at least one atom:author element.
+* atom:feed elements MAY contain any number of atom:category
+ elements.
+* atom:feed elements MAY contain any number of atom:contributor
+ elements.
+* atom:feed elements MUST NOT contain more than one atom:generator
+ element.
+* atom:feed elements MUST NOT contain more than one atom:icon
+ element.
+* atom:feed elements MUST NOT contain more than one atom:logo
+ element.
+* atom:feed elements MUST contain exactly one atom:id element.
+* atom:feed elements SHOULD contain one atom:link element with a rel
+ attribute value of "self". This is the preferred URI for
+ retrieving Atom Feed Documents representing this Atom feed.
+* atom:feed elements MUST NOT contain more than one atom:link
+ element with a rel attribute value of "alternate" that has the
+ same combination of type and hreflang attribute values.
+* atom:feed elements MAY contain additional atom:link elements
+ beyond those described above.
+* atom:feed elements MUST NOT contain more than one atom:rights
+ element.
+* atom:feed elements MUST NOT contain more than one atom:subtitle element.
+* atom:feed elements MUST contain exactly one atom:title element.
+* atom:feed elements MUST contain exactly one atom:updated element.
