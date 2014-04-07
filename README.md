@@ -91,3 +91,18 @@ From [RFC 4287](http://tools.ietf.org/html/rfc4287):
 > This specification describes conformance in terms of two artifacts:
 > Atom Feed Documents and Atom Entry Documents. Additionally, it
 > places some requirements on Atom Processors.
+
+> This specification describes two kinds of Atom Documents: Atom Feed
+> Documents and Atom Entry Documents.
+
+> An Atom Feed Document is a representation of an Atom feed, including
+> metadata about the feed, and some or all of the entries associated
+> with it. Its root is the atom:feed element.
+
+> An Atom Entry Document represents exactly one Atom entry, outside of
+> the context of an Atom feed. Its root is the atom:entry element.
+
+```
+namespace atom = "http://www.w3.org/2005/Atom"
+start = atomFeed | atomEntry
+```
